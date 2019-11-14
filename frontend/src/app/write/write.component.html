@@ -1,0 +1,34 @@
+<div ngxUiLoaderBlurred>
+  <div class="container">
+    <div class="col-12" style="background-color: burlywood; border-radius: 20px; text-align: center; padding: 1px 1px; margin-top: 10px;">
+      <h3>Write blog post</h3>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <!-- when submitting form onSubmit function gets called -->
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Heading</label>
+        <!-- heading -->
+        <input [(ngModel)]="data.heading" name="heading" type="text" class="form-control"
+          id="exampleFormControlInput1" placeholder="My trip to Alaska">
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Content</label>
+        <!-- content -->
+        <textarea [(ngModel)]="data.content" name="content" class="form-control"
+          id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Post</button>
+    </form>
+    <div *ngIf="error">
+      <div class="alert alert-danger mt-3" role="alert">
+        All fields are required!
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+<ngx-ui-loader></ngx-ui-loader>

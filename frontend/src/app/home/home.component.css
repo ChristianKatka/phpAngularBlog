@@ -1,0 +1,11 @@
+.blogPost {
+    padding: 10px 0px 10px 0px;
+    background-color: rgb(255, 233, 205);
+    border-radius: 0px 10px 10px 0px;
+}
+
+.blogPic {
+    padding: 10px 0px 10px 0px;
+    background-color: rgb(255, 233, 205);
+    border-radius: 10px 0px 0px 10px;
+}

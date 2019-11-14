@@ -1,0 +1,47 @@
+
+<div ngxUiLoaderBlurred>
+    <div class="container">
+
+        <div class="col-lg-12"
+            style="background-color: burlywood; border-radius: 20px; text-align: center; padding: 1px 1px; margin-top: 10px;">
+            <h3>Blogi postaukset</h3>
+        </div>
+        <div *ngFor="let b of blogs" class="container mt-3">
+
+
+            <hr class="my-4">
+
+            <div class="row text-center">
+                <div class="col-lg-12 mb-2" style="text-align: center;">
+                    <h3>{{b.heading}} </h3>
+                    <p><b>Kirjoittanut: </b>{{b.Usersid}}</p>
+                </div>
+
+                <div class="col-lg-6 blogPic">
+                    <img src="https://picsum.photos/200/300" alt="Random image">
+                    <!-- Deletes blog post -->
+                    <button *ngIf="loggedIn" (click)="deleteBlogPost(b.Blogid)" type="button" class="btn btn-danger float-left"
+                        data-toggle="modal" data-target="#exampleModal">X</button>
+                </div>
+                <div class="col-lg-6 blogPost">
+
+
+                    <p>{{b.content}}</p>
+                    <small *ngIf="loggedIn" class="pull-right text-success" (click)="b.canEditCode = true" style="cursor: pointer;">Edit</small>
+
+                    <input *ngIf="b.canEditCode" [(ngModel)]="b.content" type="text" class="form-control" />
+                    <button *ngIf="b.canEditCode" (click)="editBlogPost(b.Blogid, b.content)" type="button"
+                        class="btn btn-success">Save</button>
+                    <!-- Hide edit input field -->
+                    <button *ngIf="b.canEditCode" (click)="b.canEditCode = false" type="button"
+                        class="btn btn-danger">Cancel</button>
+
+
+                    <p>{{b.date}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ngx-ui-loader></ngx-ui-loader>
